@@ -17,23 +17,55 @@ export default class ClassList extends Component {
   }
 
   render() {
-    const students = this.state.students.map((student,i) => (
-      <Link to={`/student/${student.id}`} key={i}>
-        <h3>
-          {student.first_name} {student.last_name}
-        </h3>
+    let mappedStudents= this.state.students.map(el=> (
+      <Link to={`/student/${el.id}`} key={el.id}>
+        <h3>{el.first_name} {el.last_name}</h3>
       </Link>
     ));
     return (
       <div className="box">
+        <Link to="/"><button>Back to Home</button></Link>
         <h1>{this.props.match.params.class}</h1>
         <h2>ClassList:</h2>
-        {students}
-
-        <Link to="/"><button>Back to Classes</button></Link>
-
+        {mappedStudents}
 
       </div>
-    )
+    );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   render() {
+//     const students = this.state.students.map((student,i) => (
+//       <Link to={`/student/${student.id}`} key={i}>
+//         <h3>
+//           {student.first_name} {student.last_name}
+//         </h3>
+//       </Link>
+//     ));
+//     return (
+//       <div className="box">
+//         <h1>{this.props.match.params.class}</h1>
+//         <h2>ClassList:</h2>
+//         {students}
+
+//         <Link to="/"><button>Back to Classes</button></Link>
+//       </div>
+//     )
+//   }
+// }
